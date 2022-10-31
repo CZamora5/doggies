@@ -1,4 +1,4 @@
-import { parseBreedList } from '../utils/parseBreedList.js';
+import { parseBreedsList } from './parseBreedsList.js';
 import { API_CONFIG } from './api.config.js';
 
 async function getData(endpoint) {
@@ -12,5 +12,5 @@ async function getData(endpoint) {
 
 export async function getAllBreeds() {
   const data = await getData(API_CONFIG.BREEDS_LIST_URL);
-  return parseBreedList(data.message);
+  return parseBreedsList(data.message);
 }
