@@ -1,3 +1,5 @@
+@use "../mixins/" as mixins;
+
 .search-options {
   display: grid;
   grid-template-columns: 1fr;
@@ -6,29 +8,14 @@
 
   &__wrapper {
     margin-top: 3rem;
+
+    @media screen and (min-width: 30rem) {
+      margin-top: 4rem;
+    }
   }
 
   &__title {
-    position: relative;
-    font-size: var(--fs-lg);
-
-    &::before {
-      --height: 0.5625rem;
-      content: "";
-      position: absolute;
-      top: -0.25rem;
-      left: 0;
-      width: calc(var(--height) * 8);
-      height: var(--height);
-      transform: translateY(-100%);
-      border-radius: 100vw;
-      background-image:
-        linear-gradient(
-          to right,
-          var(--clr-green), var(--clr-mint),
-          var(--clr-blue), var(--clr-pink)
-        );
-    }
+    @include mixins.subtitle();
   }
 
   @media screen and (min-width: 30rem) {

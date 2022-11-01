@@ -1,0 +1,19 @@
+@mixin subtitle($bar-height: 0.5625rem) {
+  position: relative;
+  font-size: var(--fs-lg);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -0.25rem;
+    left: 0;
+    width: $bar-height * 8;
+    height: $bar-height;
+    transform: translateY(-100%);
+    border-radius: 100vw;
+    background-image:
+      linear-gradient(to right,
+        var(--clr-green), var(--clr-mint),
+        var(--clr-blue), var(--clr-pink));
+  }
+}

@@ -1,0 +1,13 @@
+@mixin watermark-pill($backround: red) {
+  --length: min(60vw, 8rem);
+
+  content: "";
+  position: absolute;
+  width: var(--length);
+  height: calc(var(--length) * 0.25);
+  background-color: $backround;
+  border-radius: 100vw;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: -2;
+}

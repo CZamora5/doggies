@@ -1,16 +1,4 @@
-@mixin watermark-pill($backround: red) {
-  --length: min(60vw, 8rem);
-
-  content: "";
-  position: absolute;
-  width: var(--length);
-  height: calc(var(--length) * 0.25);
-  background-color: $backround;
-  border-radius: 100vw;
-  opacity: 0.25;
-  pointer-events: none;
-  z-index: -2;
-}
+@use "../mixins/" as mixins;
 
 .hero {
   &__title {
@@ -22,7 +10,7 @@
       --initial-x: -1.25rem;
       --initial-y: 0.25rem;
 
-      @include watermark-pill(var(--clr-green));
+      @include mixins.watermark-pill(var(--clr-green));
       top: 0;
       left: 0;
       transform: translate(var(--initial-x), var(--initial-y));
@@ -32,7 +20,7 @@
       --initial-x: -2.25rem;
       --initial-y: -2rem;
 
-      @include watermark-pill(var(--clr-mint));
+      @include mixins.watermark-pill(var(--clr-mint));
       top: 0;
       right: 0;
       transform: translate(var(--initial-x), var(--initial-y));
@@ -47,7 +35,7 @@
       --initial-x: 1rem;
       --initial-y: -0.75rem;
 
-      @include watermark-pill(var(--clr-pink));
+      @include mixins.watermark-pill(var(--clr-pink));
       top: 0;
       right: 0;
       transform: translate(var(--initial-x), var(--initial-y));
@@ -87,7 +75,7 @@
       --initial-x: 0.25rem;
       --initial-y: 1.5rem;
 
-      @include watermark-pill(var(--clr-blue));
+      @include mixins.watermark-pill(var(--clr-blue));
       bottom: 0;
       left: 0;
       transform: translate(var(--initial-x), var(--initial-y));
