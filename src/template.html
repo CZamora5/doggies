@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Doggies</title>
 </head>
+
 <body>
-  <input type="text" class="search__input" placeholder="Search by breed!">
-  <div class="search__results">
-  </div>
+  <header class="header container-p">
+    <nav class="header__nav">
+      <p class="header__logo">Doggies</p>
+    </nav>
+  </header>
+  <main>
+    <section class="hero container">
+      <div class="hero__content">
+        <div class="hero__content--left">
+          <h1 class="hero__title">We supply your needs of beautiful dogs</h1>
+          <p class="hero__text">
+            It has never been this easy to get your daily dose of cuteness.
+          </p>
+          <button class="hero__button">
+            <span>
+              Start browsing
+            </span>
+          </button>
+        </div>
+        <figure class="hero__content--right">
+          <img class="hero__img" src="./app/assets/images/hero-img.jpg" alt="A small dog wearing a bow tie">
+        </figure>
+      </div>
+    </section>
+  </main>
+  <form class="search-bar">
+    <input type="text" class="search-bar__input" placeholder="Search by breed!">
+    <div class="search-bar__results"></div>
+  </form>
 </body>
+
 </html>

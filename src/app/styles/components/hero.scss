@@ -1,0 +1,162 @@
+@mixin watermark-pill($backround: red) {
+  --length: min(60vw, 8rem);
+
+  content: "";
+  position: absolute;
+  width: var(--length);
+  height: calc(var(--length) * 0.25);
+  background-color: $backround;
+  border-radius: 100vw;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: -2;
+}
+
+.hero {
+  &__title {
+    position: relative;
+    font-size: var(--fs-hero);
+    line-height: 105%;
+
+    &::before {
+      --initial-x: -1.25rem;
+      --initial-y: 0.25rem;
+
+      @include watermark-pill(var(--clr-green));
+      top: 0;
+      left: 0;
+      transform: translate(var(--initial-x), var(--initial-y));
+    }
+
+    &::after {
+      --initial-x: -2.25rem;
+      --initial-y: -2rem;
+
+      @include watermark-pill(var(--clr-mint));
+      top: 0;
+      right: 0;
+      transform: translate(var(--initial-x), var(--initial-y));
+    }
+  }
+
+  &__text {
+    position: relative;
+    margin-top: 0.5rem;
+
+    &::before {
+      --initial-x: 1rem;
+      --initial-y: -0.75rem;
+
+      @include watermark-pill(var(--clr-pink));
+      top: 0;
+      right: 0;
+      transform: translate(var(--initial-x), var(--initial-y));
+    }
+  }
+
+  &__button {
+    position: relative;
+    font-weight: 600;
+    padding: 0.25rem 1rem;
+    margin-top: 0.75rem;
+    border: 1px solid var(--clr-black);
+    border-radius: 0.1875rem;
+    background-color: transparent;
+    cursor: pointer;
+
+    @media (hover: hover) {
+      &:hover {
+        &::before {
+          opacity: 0.1;
+          transition: opacity 250ms ease-in;
+        }
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background-color: var(--clr-cream);
+      z-index: -1;
+      transition: opacity 450ms ease-out;
+    }
+
+    &::after {
+      --initial-x: 0.25rem;
+      --initial-y: 1.5rem;
+
+      @include watermark-pill(var(--clr-blue));
+      bottom: 0;
+      left: 0;
+      transform: translate(var(--initial-x), var(--initial-y));
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: max(40vh, 16rem);
+    max-height: 30rem;
+    object-fit: cover;
+  }
+
+  &__content {
+    &--left {
+      padding: 3rem 0.5rem;
+
+      @media screen and (min-width: 11rem) {
+        padding: 3rem 0.75rem;
+      }
+
+      @media screen and (min-width: 20rem) {
+        padding: 3rem 1rem;
+      }
+
+      @media screen and (min-width: 25rem) {
+        padding: 3rem 0;
+      }
+    }
+
+    &--right {
+      display: flex;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+  }
+
+  @media screen and (min-width: 23.5rem) {
+    &__title {
+      width: 90%;
+      max-width: 36rem;
+    }
+
+    &__text {
+      width: 70%;
+      max-width: 30rem;
+    }
+  }
+
+  @media screen and (min-width: 48rem) {
+    &__content {
+      display: flex;
+      align-items: center;
+      margin-top: 1rem;
+
+      &--left {
+        min-width: 30rem;
+      }
+
+      &--right {
+        border-radius: 1rem;
+        overflow: hidden;
+      }
+    }
+
+    &__img {
+      height: auto;
+      max-height: unset;
+    }
+  }
+}

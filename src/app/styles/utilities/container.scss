@@ -1,0 +1,23 @@
+.container,  .container-p {
+  @media screen and (min-width: 25rem) {
+    width: 92%;
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+}
+
+.container-p {
+  padding: 0 0.5rem;
+
+  @media screen and (min-width: 11rem) {
+    padding: 0 0.75rem;
+  }
+
+  @media screen and (min-width: 20rem) {
+    padding: 0 1rem;
+  }
+
+  @media screen and (min-width: 25rem) {
+    padding: 0;
+  }
+}
