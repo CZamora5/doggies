@@ -1,0 +1,16 @@
+@use "../mixins/" as mixins;
+
+.browser {
+  &__wrapper {
+    margin-top: 3rem;
+    min-height: 100vh;
+
+    @media screen and (min-width: 30rem) {
+      margin-top: 4rem;
+    }
+  }
+
+  &__title {
+    @include mixins.subtitle();
+  }
+}

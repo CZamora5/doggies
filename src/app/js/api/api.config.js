@@ -1,10 +1,12 @@
 const BASE_URL = 'https://dog.ceo/api';
+const BREED_URL = `${BASE_URL}/breed`;
 const BREEDS_URL = `${BASE_URL}/breeds`;
 const BREEDS_LIST_URL = `${BREEDS_URL}/list/all`;
 
 const breedUrl = (breed, subBreed) => {
-  let endpoint = BREEDS_URL;
-  if (breed) endpoint += `/${breed}`;
+  if (!breed) return BREED_URL;
+
+  let endpoint = `${BREED_URL}/${breed}`;
   if (subBreed) endpoint += `/${subBreed}`;
   return endpoint;
 };

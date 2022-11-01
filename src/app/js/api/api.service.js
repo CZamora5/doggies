@@ -16,7 +16,8 @@ async function getAllBreeds() {
 }
 
 async function getImages(obj) {
-  const endpoint = API_CONFIG.breedUrl(obj['breed'], obj['sub-breed']);
+  const breedEndpoint = API_CONFIG.breedUrl(obj['breed'], obj['sub-breed']);
+  const endpoint = API_CONFIG.allImages(breedEndpoint);
   const data = await getData(endpoint);
   return data.message;
 }
