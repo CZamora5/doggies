@@ -12,5 +12,5 @@ function isSubstring(word, pattern) {
 }
 
 export function search(searchTerm, list, predicate = isSubstring) {
-  return list.filter(item => predicate(item, searchTerm));
+  return list.filter(elem => predicate(elem['name'], searchTerm));
 }
