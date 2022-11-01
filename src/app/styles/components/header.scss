@@ -1,0 +1,10 @@
+.header {
+  &__nav {
+    padding: 0.75rem 0;
+  }
+
+  &__logo {
+    font-size: var(--fs-lg);
+    font-weight: 600;
+  }
+}

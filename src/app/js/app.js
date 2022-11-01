@@ -1,7 +1,7 @@
-import { getAllBreeds } from './api/api.service.js';
+import { API } from './api/api.service.js';
 import { searchBar } from './searchBar/searchBar.js';
 
 export async function app() {
-  const breedsList = await getAllBreeds();
-  searchBar('.search__input', '.search__results', breedsList);
+  const breedsList = await API.getAllBreeds();
+  searchBar('.search-bar__input', '.search-bar__results', breedsList);
 }

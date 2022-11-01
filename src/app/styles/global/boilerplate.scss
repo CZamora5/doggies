@@ -19,4 +19,6 @@ p {
 body {
   background-color: var(--clr-white);
   color: var(--clr-black);
+  width: 100%;
+  overflow-x: hidden;
 }
