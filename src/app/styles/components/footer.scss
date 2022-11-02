@@ -1,3 +1,5 @@
+@use "../mixins/subtitle.scss" as mixins;
+
 .footer {
   background-color: var(--clr-cream);
   margin-top: 3rem;
@@ -11,8 +13,14 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
-
   }
+
+  h2 {
+    @include mixins.subtitle(0.375rem);
+    color: var(--clr-dark-gray);
+  }
+  // &__about {
+  // }
 
   &__copy {
     font-size: calc(var(--fs-sm) - 2px);

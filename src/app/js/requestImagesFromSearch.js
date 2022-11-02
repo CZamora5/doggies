@@ -17,7 +17,8 @@ export function requestImagesFromSearch(elemSelector, containerSelector) {
       this.searchBar.breed = obj;
       this.searchBar.input.value = capitalize(target.dataset['breedName']);
       this.anyBreedCheckbox.checked = false;
-      this.handleSearchParams();
+      this.handleSearchParams(true);
+      this.reset();
       if (this.searchParams.random) {
         this.images = await API.getRandomImages(this.searchParams.quantity, this.searchBar.breed);
       } else {

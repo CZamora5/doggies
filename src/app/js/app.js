@@ -47,13 +47,13 @@ export class App {
     handleApiRequest.call(this);
   }
 
-  handleSearchParams = () => {
+  handleSearchParams = (skip = false) => {
     this.searchParams.random = this.randomCheckbox.checked;
     this.searchParams.any = this.anyBreedCheckbox.checked;
     this.searchParams.quantity = Math.min(Math.max(parseInt(this.quantityInput.value), 1), 50);
     this.quantityInput.value = this.searchParams.quantity;
     this.searchParams.page = 1;
-    handleApiRequest.call(this);
+    if (!skip) handleApiRequest.call(this);
   };
 
   loadMoreImages = () => {
@@ -68,7 +68,7 @@ export class App {
   printImages = (imgsTotal, n, page) => {
     const fragment = document.createDocumentFragment();
 
-    for (let i = n * (page - 1); i < Math.min(n * (page + 1), imgsTotal); i++) {
+    for (let i = n * (page - 1); i < Math.min(n * page, imgsTotal); i++) {
       const img = document.createElement('img');
       img.src = this.images[i];
       img.alt = "";
@@ -77,7 +77,7 @@ export class App {
       fragment.appendChild(img);
     }
     this.grid.appendChild(fragment);
-    if (imgsTotal > n * this.searchParams.page) {
+    if (imgsTotal > n * page) {
       this.showLoadMoreButton();
     }
   };
