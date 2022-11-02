@@ -4,15 +4,27 @@ const BREEDS_URL = `${BASE_URL}/breeds`;
 const BREEDS_LIST_URL = `${BREEDS_URL}/list/all`;
 
 const breedUrl = (breed, subBreed) => {
-  if (!breed) return BREED_URL;
+  if (!breed) return BREEDS_URL;
 
   let endpoint = `${BREED_URL}/${breed}`;
   if (subBreed) endpoint += `/${subBreed}`;
   return endpoint;
 };
 const allImages = endpoint => `${endpoint}/images`;
-const randomImage = endpoint => `${endpoint}/images/random`;
-const randomImages = (endpoint, n) => `${endpoint}/images/random/${n}`;
+const randomImage = endpoint => {
+  return (
+    endpoint === BREEDS_URL
+      ? `${endpoint}/image/random`
+      : `${endpoint}/images/random`
+  );
+};
+const randomImages = (endpoint, n) => {
+  return (
+    endpoint === BREEDS_URL
+      ? `${endpoint}/image/random/${n}`
+      : `${endpoint}/images/random/${n}`
+  );
+};
 
 export const API_CONFIG = {
   BASE_URL,
