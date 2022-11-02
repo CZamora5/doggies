@@ -15,5 +15,6 @@
       linear-gradient(to right,
         var(--clr-green), var(--clr-mint),
         var(--clr-blue), var(--clr-pink));
+    pointer-events: none;
   }
 }

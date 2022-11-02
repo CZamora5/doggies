@@ -46,20 +46,10 @@
     position: relative;
     font-weight: 600;
     padding: 0.25rem 1rem;
-    margin-top: 0.75rem;
     border: 1px solid var(--clr-black);
     border-radius: 0.1875rem;
     background-color: transparent;
     cursor: pointer;
-
-    @media (hover: hover) {
-      &:hover {
-        &::before {
-          opacity: 0.1;
-          transition: opacity 250ms ease-in;
-        }
-      }
-    }
 
     &::before {
       content: "";
@@ -71,14 +61,29 @@
       transition: opacity 450ms ease-out;
     }
 
-    &::after {
-      --initial-x: 0.25rem;
-      --initial-y: 1.5rem;
+    @media (hover: hover) {
+      &:hover {
+        &::before {
+          opacity: 0.1;
+          transition: opacity 250ms ease-in;
+        }
+      }
+    }
 
-      @include mixins.watermark-pill(var(--clr-blue));
-      bottom: 0;
-      left: 0;
-      transform: translate(var(--initial-x), var(--initial-y));
+    &--wrapper {
+      position: relative;
+      display: inline-block;
+      margin-top: 0.75rem;
+
+      &::after {
+        --initial-x: 0.25rem;
+        --initial-y: 1.5rem;
+
+        @include mixins.watermark-pill(var(--clr-blue));
+        bottom: 0;
+        left: 0;
+        transform: translate(var(--initial-x), var(--initial-y));
+      }
     }
   }
 

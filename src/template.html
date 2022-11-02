@@ -22,9 +22,11 @@
           <p class="hero__text">
             It has never been this easy to get your daily dose of cuteness.
           </p>
-          <button class="hero__button">
-            Start browsing
-          </button>
+          <div class="hero__button--wrapper">
+            <button class="hero__button">
+              Start browsing
+            </button>
+          </div>
         </div>
         <figure class="hero__content--right">
           <img class="hero__img" src="./app/assets/images/hero-img.jpg" alt="A small dog wearing a bow tie">
@@ -92,9 +94,24 @@
     </section>
     <section class="browser__wrapper container-p">
       <h2 class="browser__title">Browse images</h2>
-      <form class="search-bar">
-        <input type="text" class="search-bar__input" placeholder="Search by breed!">
-        <div class="search-bar__results"></div>
+      <form class="browser__form">
+        <fieldset class="browser__form__field">
+          <label for="random-checkbox">Random images</label>
+          <input type="checkbox" id="random-checkbox">
+        </fieldset>
+        <fieldset class="browser__form__field">
+          <label for="number-imgs-input">Number of images</label>
+          <input type="number" id="number-imgs-input">
+        </fieldset>
+        <fieldset class="browser__form__field">
+          <label for="any-breed-checkbox">Any breed</label>
+          <input type="checkbox" id="any-breed-checkbox">
+        </fieldset>
+        <fieldset class="search-bar browser__form__field">
+          <button class="search-bar__button">Search</button>
+          <input type="text" class="search-bar__input" placeholder="Search by breed!">
+          <div class="search-bar__results"></div>
+        </fieldset>
       </form>
       <div class="browser__grid"></div>
     </section>

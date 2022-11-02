@@ -4,9 +4,14 @@ export function printSearchResults(container, results) {
   const fragment = document.createDocumentFragment();
 
   results.forEach(elem => {
+    const breedName = capitalize(elem['name']);
+
     const p = document.createElement('p');
-    p.textContent = capitalize(elem['name']);
+    p.textContent = breedName;
     p.classList.add('search-bar__result');
+
+    p.setAttribute('tabindex', '0');
+    p.setAttribute('title', `Select this option to search dog images of the ${breedName} breed`);
 
     p.setAttribute('data-breed', elem['breed']);
     if (elem['sub-breed']) {

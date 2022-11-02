@@ -1,9 +1,12 @@
 .search-bar {
   position: relative;
+  display: flex;
 
   &__input {
     width: 100%;
     padding: 0.5rem 1.25rem 0.5rem 0.75rem;
+    border: 1px solid var(--clr-black);
+    border-radius: 0 0.1875rem 0.1875rem 0;
 
     &:focus+.search-bar__results {
       transition:
@@ -11,6 +14,35 @@
         transform 400ms ease-in;
       opacity: 1;
       transform: scaleY(1);
+    }
+  }
+
+  &__button {
+    position: relative;
+    padding: 0.25rem 1rem;
+    border: 1px solid var(--clr-black);
+    border-right: none;
+    border-radius: 0.1875rem 0 0 0.1875rem;
+    background-color: transparent;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background-color: var(--clr-cream);
+      z-index: -1;
+      transition: opacity 450ms ease-out;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        &::before {
+          opacity: 0.7;
+          transition: opacity 250ms ease-in;
+        }
+      }
     }
   }
 
@@ -27,6 +59,14 @@
     transition:
       opacity 800ms ease-out,
       transform 1000ms ease-out;
+
+    &:focus-within {
+      transition:
+        opacity 550ms ease-in,
+        transform 400ms ease-in;
+      opacity: 1;
+      transform: scaleY(1);
+    }
   }
 
   &__result {
@@ -41,6 +81,12 @@
       background-color: var(--clr-dark-cream);
       opacity: 0.1;
       z-index: -1;
+    }
+
+    &:focus {
+      &::before {
+        opacity: 0.25;
+      }
     }
 
     @media (hover: hover) {

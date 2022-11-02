@@ -13,4 +13,14 @@
   &__title {
     @include mixins.subtitle();
   }
+
+  &__form {
+    margin-top: 1rem;
+
+    &__field {
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+  }
 }
