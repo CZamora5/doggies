@@ -1,10 +1,44 @@
 .header {
   &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 0.75rem 0;
   }
 
   &__logo {
+    text-decoration: none;
+    color: var(--clr-black);
     font-size: var(--fs-lg);
     font-weight: 600;
+  }
+
+  .link {
+    display: none;
+  }
+
+  &__button {
+    --clr-black: rgb(46 43 34 / 0.35);
+    --clr-cream: 242 226 186;
+
+    position: relative;
+    font-size: var(--fs-sm);
+    padding: 0.25rem 1rem;
+    border: 1px solid var(--clr-black);
+    border-radius: 0.1875rem;
+    background-color: rgb(var(--clr-cream) / 0.1);
+    cursor: pointer;
+
+    @media  (hover: hover) {
+      &:hover {
+        background-color: rgb(var(--clr-cream) / 0.4);
+      }
+    }
+  }
+
+  @media screen and (min-width: 17rem) {
+    .link {
+      display: initial
+    }
   }
 }

@@ -11,6 +11,11 @@
   border: 0.15rem solid var(--clr-black);
   border-radius: 0.15rem;
   transform: translateY(-0.075em);
+  cursor: pointer;
+
+  &__label {
+    cursor: pointer;
+  }
 
   &::before {
     content: "";

@@ -22,3 +22,10 @@ body {
   width: 100%;
   overflow-x: hidden;
 }
+
+.link {
+  --clr-black: #2E2B22;
+
+  text-decoration: none;
+  color: var(--clr-black);
+}

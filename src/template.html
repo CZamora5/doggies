@@ -11,7 +11,12 @@
 <body>
   <header class="header container-p">
     <nav class="header__nav">
-      <p class="header__logo">Doggies</p>
+      <a href="#" class="header__logo">Doggies</a>
+      <a href="https://github.com/jigsawpieces/dog-api-images#dog-api-images" class="link">
+        <div class="header__button">
+          Submit your dog
+        </div>
+      </a>
     </nav>
   </header>
   <main>
@@ -23,9 +28,11 @@
             It has never been this easy to get your daily dose of cuteness.
           </p>
           <div class="hero__button--wrapper">
-            <button class="hero__button">
-              Start browsing
-            </button>
+            <a href="#browse" class="link">
+              <div class="hero__button">
+                Start browsing
+              </div>
+            </a>
           </div>
         </div>
         <figure class="hero__content--right">
@@ -92,16 +99,16 @@
         </div>
       </div>
     </section>
-    <section class="explore__wrapper container-p">
+    <section id="browse" class="explore__wrapper container-p">
       <h2 class="explore__title">Browse images</h2>
       <form class="explore__form">
         <div class="explore__form__options">
           <fieldset class="explore__form__field explore__form__random">
-            <label for="random-checkbox">Random images</label>
+            <label class="checkbox__label" for="random-checkbox">Random images</label>
             <input class="checkbox" type="checkbox" id="random-checkbox">
           </fieldset>
           <fieldset class="explore__form__field explore__form__any">
-            <label for="any-breed-checkbox">Any breed</label>
+            <label class="checkbox__label" for="any-breed-checkbox">Any breed</label>
             <input class="checkbox" type="checkbox" id="any-breed-checkbox" checked>
           </fieldset>
           <fieldset class="explore__form__field explore__form__number">
