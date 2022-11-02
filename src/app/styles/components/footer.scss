@@ -1,4 +1,4 @@
-@use "../mixins/subtitle.scss" as mixins;
+@use "../mixins/" as mixins;
 
 .footer {
   background-color: var(--clr-cream);
@@ -10,17 +10,74 @@
   border-bottom: 1px solid var(--clr-light-gray);
 
   &__wrapper {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
+
+    &::before {
+      --initial-x: -10vw;
+      --initial-y: -2.75rem;
+
+      @include mixins.watermark-pill(var(--clr-pink), 0.10);
+      z-index: 0;
+      bottom: 0;
+      right: 0;
+      transform: translate(var(--initial-x), var(--initial-y));
+    }
+
+    &::after {
+      --initial-x: -35vw;
+      --initial-y: -1.25rem;
+
+      @include mixins.watermark-pill(var(--clr-blue), 0.10);
+      z-index: 0;
+      bottom: 0;
+      right: 0;
+      transform: translate(var(--initial-x), var(--initial-y));
+    }
   }
 
-  h2 {
-    @include mixins.subtitle(0.375rem);
-    color: var(--clr-dark-gray);
+  &__about {
+    position: relative;
+
+    h2 {
+      position: relative;
+
+      &::before {
+        --initial-x: 8vw;
+        --initial-y: 4.75rem;
+
+        @include mixins.watermark-pill(rgb(220, 166, 184), 0.10);
+        z-index: 0;
+        top: 0;
+        left: 0;
+        transform: translate(var(--initial-x), var(--initial-y));
+      }
+    }
+
+    &::before {
+      --initial-x: 5vw;
+      --initial-y: 0.75rem;
+
+      @include mixins.watermark-pill(var(--clr-green), 0.10);
+      z-index: 0;
+      top: 0;
+      left: 0;
+      transform: translate(var(--initial-x), var(--initial-y));
+    }
+
+    &::after {
+      --initial-x: 38vw;
+      --initial-y: 0.5rem;
+
+      @include mixins.watermark-pill(var(--clr-mint), 0.10);
+      z-index: 0;
+      top: 0;
+      left: 0;
+      transform: translate(var(--initial-x), var(--initial-y));
+    }
   }
-  // &__about {
-  // }
 
   &__copy {
     font-size: calc(var(--fs-sm) - 2px);

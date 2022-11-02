@@ -47,7 +47,7 @@
     font-weight: 600;
     padding: 0.25rem 1rem;
     border: 1px solid var(--clr-black);
-    border-radius: 0.1875rem;
+    border-radius: 0  0.1875rem 0.1875rem 0;
     background-color: transparent;
     cursor: pointer;
 
@@ -84,6 +84,31 @@
         left: 0;
         transform: translate(var(--initial-x), var(--initial-y));
       }
+
+      .link__bow-tie {
+        position: relative;
+
+        &::after {
+          --diff: 1px;
+          background-color: var(--clr-cream);
+        }
+
+        &::before {
+          background-color: var(--clr-black);
+        }
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          top: calc(12% + var(--diff, 0px));
+          right: calc(-20% + 2 * var(--diff, 0px));
+          height: calc(76% - 2 * var(--diff, 0px));
+          width: calc(100% - 2 * var(--diff, 0px));
+          z-index: -1;
+          clip-path: polygon(0% 0%, 100% 0%, 90% 50%, 100% 100%, 0% 100%, 0% 0%);
+        }
+      }
     }
   }
 
@@ -118,24 +143,6 @@
       margin: 0;
       padding: 0;
       width: 100%;
-
-      &::before {
-        --size: calc(var(--fs-hero) * 3);
-        content: "";
-        position: absolute;
-        bottom: calc(var(--size) * -0.25);
-        left: calc(var(--size) * -0.25);
-        ;
-        width: var(--size);
-        height: var(--size);
-        background-image:
-          radial-gradient(circle at 25% 25%, var(--clr-green) 12.5%, transparent 12.5%),
-          radial-gradient(circle at 75% 25%, var(--clr-blue) 12.5%, transparent 12.5%),
-          radial-gradient(circle at 25% 75%, rgb(234, 170, 225) 12.5%, transparent 12.5%),
-          radial-gradient(circle at 75% 75%, var(--clr-mint) 12.5%, transparent 12.5%);
-        background-size: 25% 25%;
-        background-repeat: repeat;
-      }
     }
   }
 
@@ -163,6 +170,24 @@
 
       &--right {
         border-radius: 1rem;
+
+        &::before {
+          --size: calc(var(--fs-hero) * 3);
+          content: "";
+          position: absolute;
+          bottom: calc(var(--size) * -0.25);
+          left: calc(var(--size) * -0.25);
+          ;
+          width: var(--size);
+          height: var(--size);
+          background-image:
+            radial-gradient(circle at 25% 25%, var(--clr-green) 12.5%, transparent 12.5%),
+            radial-gradient(circle at 75% 25%, var(--clr-blue) 12.5%, transparent 12.5%),
+            radial-gradient(circle at 25% 75%, rgb(234, 170, 225) 12.5%, transparent 12.5%),
+            radial-gradient(circle at 75% 75%, var(--clr-mint) 12.5%, transparent 12.5%);
+          background-size: 25% 25%;
+          background-repeat: repeat;
+        }
       }
     }
 

@@ -1,4 +1,4 @@
-@mixin watermark-pill($backround: red) {
+@mixin watermark-pill($backround: red, $opacity: 0.25) {
   --length: min(60vw, 8rem);
 
   content: "";
@@ -7,7 +7,7 @@
   height: calc(var(--length) * 0.25);
   background-color: $backround;
   border-radius: 100vw;
-  opacity: 0.25;
+  opacity: $opacity;
   pointer-events: none;
   z-index: -2;
 }
