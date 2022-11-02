@@ -1,9 +1,9 @@
 import { capitalize } from '../utils/capitalize.js';
 
-export function printSearchResults(container, results) {
+export function printSearchResults() {
   const fragment = document.createDocumentFragment();
 
-  results.forEach(elem => {
+  this.searchResults.forEach(elem => {
     const breedName = capitalize(elem['name']);
 
     const p = document.createElement('p');
@@ -14,6 +14,7 @@ export function printSearchResults(container, results) {
     p.setAttribute('title', `Select this option to search dog images of the ${breedName} breed`);
 
     p.setAttribute('data-breed', elem['breed']);
+    p.setAttribute('data-breed-name', elem['name']);
     if (elem['sub-breed']) {
       p.setAttribute('data-sub-breed', elem['sub-breed']);
     }
@@ -21,5 +22,5 @@ export function printSearchResults(container, results) {
     fragment.appendChild(p);
   });
 
-  container.appendChild(fragment);
+  this.resultsList.appendChild(fragment);
 }

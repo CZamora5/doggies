@@ -1,24 +1,24 @@
-import { search } from './search.js';
+import { handleInput } from './handleInput.js';
 import { printSearchResults } from './printSearchResults.js';
-import { clearElementContent } from '../utils/clearElementContent.js';
 
-function handleChange(searchTerm, resultsList, breeds) {
-  const searchResults = search(searchTerm, breeds);
-  clearElementContent(resultsList);
-  printSearchResults(resultsList, searchResults);
-}
+export class SearchBar {
+  constructor(searchInputSelector, resultsSelector, breeds)  {
+    this.input = document.querySelector(searchInputSelector);
+    this.resultsList = document.querySelector(resultsSelector);
+    this.breeds = breeds;
+    this.searchResults = breeds;
+    this.searchTerm = '';
+    this.valid = false;
+    this.handleInput = handleInput.bind(this);
+    this.printSearchResults = printSearchResults.bind(this);
+    this.handleInput();
 
-export function searchBar(searchInputSelector, resultsSelector, breeds) {
-  const input = document.querySelector(searchInputSelector);
-  const resultsList = document.querySelector(resultsSelector);
-  let searchTerm = '';
+    this.input.addEventListener('input', evt => {
+      const newSearchTerm = evt.target.value.trim();
+      if (this.searchTerm === newSearchTerm) return;
 
-  handleChange(searchTerm, resultsList, breeds);
-  input.addEventListener('input', evt => {
-    const newSearchTerm = evt.target.value.trim();
-    if (searchTerm === newSearchTerm) return;
-
-    searchTerm = newSearchTerm;
-    handleChange(searchTerm, resultsList, breeds);
-  });
+      this.searchTerm = newSearchTerm;
+      this.handleInput();
+    });
+  }
 }
