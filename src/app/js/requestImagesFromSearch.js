@@ -16,12 +16,12 @@ export function requestImagesFromSearch(elemSelector, containerSelector) {
       this.searchBar.isValid = true;
       this.searchBar.breed = obj;
       this.searchBar.input.value = capitalize(target.dataset['breedName']);
+      this.anyBreedCheckbox.checked = false;
       this.handleSearchParams();
       if (this.searchParams.random) {
         this.images = await API.getRandomImages(this.searchParams.quantity, this.searchBar.breed);
       } else {
         this.images = await API.getImages(obj);
-        this.showLoadMoreButton();
       }
       this.loadMoreImages();
     }

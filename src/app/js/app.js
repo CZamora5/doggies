@@ -30,6 +30,9 @@ export class App {
 
     this.form.addEventListener('submit', evt => {
       evt.preventDefault();
+      if (document.activeElement === this.searchBar.input) {
+        this.anyBreedCheckbox.checked = false;
+      }
       document.activeElement.blur();
       this.handleSearchParams();
     });
@@ -45,6 +48,8 @@ export class App {
   }
 
   handleSearchParams = () => {
+    this.searchParams.random = this.randomCheckbox.checked;
+    this.searchParams.any = this.anyBreedCheckbox.checked;
     this.searchParams.quantity = Math.min(Math.max(parseInt(this.quantityInput.value), 1), 50);
     this.quantityInput.value = this.searchParams.quantity;
     this.searchParams.page = 1;
@@ -55,6 +60,7 @@ export class App {
     const n = this.searchParams.quantity;
     const imgsTotal = this.images.length;
     const page = this.searchParams.page;
+    this.loadMoreButton.classList.add('none');
     this.printImages(imgsTotal, n, page);
     this.searchParams.page += 1;
   };
@@ -71,8 +77,8 @@ export class App {
       fragment.appendChild(img);
     }
     this.grid.appendChild(fragment);
-    if (imgsTotal <= n * this.searchParams.page) {
-      this.loadMoreButton.classList.add('none');
+    if (imgsTotal > n * this.searchParams.page) {
+      this.showLoadMoreButton();
     }
   };
 

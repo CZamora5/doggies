@@ -13,7 +13,6 @@ export async function handleApiRequest() {
     this.loadMoreImages();
   } else {
     this.images = await API.getImages(this.searchBar.breed);
-    this.showLoadMoreButton();
     this.loadMoreImages();
   }
 }
