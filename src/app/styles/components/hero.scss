@@ -92,6 +92,7 @@
     height: max(40vh, 16rem);
     max-height: 30rem;
     object-fit: cover;
+    border-radius: inherit;
   }
 
   &__content {
@@ -112,10 +113,36 @@
     }
 
     &--right {
+      position: relative;
       display: flex;
       margin: 0;
       padding: 0;
       width: 100%;
+
+      &::before {
+        --size: calc(var(--fs-hero) * 3);
+        content: "";
+        position: absolute;
+        bottom: calc(var(--size) * -0.25);
+        right: calc(var(--size) * -0.25);;
+        width: var(--size);
+        height: var(--size);
+        background-image:
+          radial-gradient(
+            circle at 25% 25%, var(--clr-green) 12.5%, transparent 12.5%
+          ),
+          radial-gradient(
+            circle at 75% 25%, var(--clr-blue) 12.5%, transparent 12.5%
+          ),
+          radial-gradient(
+            circle at 25% 75%, rgb(234, 170, 225) 12.5%, transparent 12.5%
+          ),
+          radial-gradient(
+            circle at 75% 75%, var(--clr-mint) 12.5%, transparent 12.5%
+          );
+        background-size: 25% 25%;
+        background-repeat: repeat;
+      }
     }
   }
 
@@ -143,7 +170,6 @@
 
       &--right {
         border-radius: 1rem;
-        overflow: hidden;
       }
     }
 

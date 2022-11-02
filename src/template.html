@@ -92,28 +92,39 @@
         </div>
       </div>
     </section>
-    <section class="browser__wrapper container-p">
-      <h2 class="browser__title">Browse images</h2>
-      <form class="browser__form">
-        <fieldset class="browser__form__field">
-          <label for="random-checkbox">Random images</label>
-          <input type="checkbox" id="random-checkbox">
-        </fieldset>
-        <fieldset class="browser__form__field">
-          <label for="number-imgs-input">Number of images</label>
-          <input type="number" id="number-imgs-input">
-        </fieldset>
-        <fieldset class="browser__form__field">
-          <label for="any-breed-checkbox">Any breed</label>
-          <input type="checkbox" id="any-breed-checkbox">
-        </fieldset>
-        <fieldset class="search-bar browser__form__field">
-          <button class="search-bar__button">Search</button>
-          <input type="text" class="search-bar__input" placeholder="Search by breed!">
+    <section class="explore__wrapper container-p">
+      <h2 class="explore__title">Browse images</h2>
+      <form class="explore__form">
+        <div class="explore__form__options">
+          <fieldset class="explore__form__field explore__form__random">
+            <label for="random-checkbox">Random images</label>
+            <input class="checkbox" type="checkbox" id="random-checkbox">
+          </fieldset>
+          <fieldset class="explore__form__field explore__form__any">
+            <label for="any-breed-checkbox">Any breed</label>
+            <input class="checkbox" type="checkbox" id="any-breed-checkbox" checked>
+          </fieldset>
+          <fieldset class="explore__form__field explore__form__number">
+            <label for="number-imgs-input">Number of images</label>
+            <input type="number" min="1" value="20" id="number-imgs-input">
+          </fieldset>
+        </div>
+        <fieldset class="search-bar explore__form__field">
+          <button class="search-bar__button">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M57.425 54.575L46.6 43.775C50.4205 39.2265 52.3375 33.3786 51.9512 27.451C51.5649 21.5234 48.9051 15.9738 44.5266 11.9596C40.148 7.94542 34.3888 5.77658 28.45 5.90543C22.5113 6.03428 16.8515 8.45087 12.6512 12.6512C8.45089 16.8515 6.0343 22.5113 5.90545 28.45C5.7766 34.3888 7.94545 40.148 11.9596 44.5266C15.9738 48.9051 21.5234 51.5649 27.451 51.9512C33.3786 52.3375 39.2265 50.4205 43.775 46.6L54.575 57.425C54.9573 57.7946 55.4683 58.0013 56 58.0013C56.5318 58.0013 57.0427 57.7946 57.425 57.425C57.8006 57.0458 58.0113 56.5337 58.0113 56C58.0113 55.4663 57.8006 54.9542 57.425 54.575V54.575ZM10 29C10 25.2422 11.1144 21.5687 13.2021 18.4442C15.2898 15.3196 18.2572 12.8844 21.729 11.4463C25.2008 10.0082 29.0211 9.63196 32.7067 10.3651C36.3924 11.0982 39.7778 12.9078 42.435 15.565C45.0922 18.2222 46.9018 21.6076 47.6349 25.2933C48.3681 28.9789 47.9918 32.7992 46.5537 36.271C45.1157 39.7428 42.6804 42.7102 39.5559 44.7979C36.4313 46.8857 32.7579 48 29 48C23.9629 47.9934 19.1341 45.9895 15.5723 42.4277C12.0105 38.866 10.0066 34.0371 10 29V29Z"
+                fill="#2E2B22" />
+            </svg>
+          </button>
+          <input type="text" class="search-bar__input" placeholder="Search all breeds">
           <div class="search-bar__results"></div>
         </fieldset>
       </form>
-      <div class="browser__grid"></div>
+      <div class="explore__grid"></div>
+      <div class="explore__button--wrapper">
+        <button class="explore__button">Load more</button>
+      </div>
     </section>
   </main>
 </body>
