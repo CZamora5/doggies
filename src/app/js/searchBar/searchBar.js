@@ -8,7 +8,8 @@ export class SearchBar {
     this.breeds = breeds;
     this.searchResults = breeds;
     this.searchTerm = '';
-    this.valid = false;
+    this.breed = null;
+    this.isValid = false;
     this.handleInput = handleInput.bind(this);
     this.printSearchResults = printSearchResults.bind(this);
     this.handleInput();
