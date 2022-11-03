@@ -46,8 +46,8 @@
     position: relative;
     font-weight: 600;
     padding: 0.25rem 1rem;
+    border-radius: inherit;
     border: 1px solid var(--clr-black);
-    border-radius: 0  0.1875rem 0.1875rem 0;
     background-color: transparent;
     cursor: pointer;
 
@@ -74,6 +74,7 @@
       position: relative;
       display: inline-block;
       margin-top: 0.75rem;
+      border-radius: 0 0.1875rem 0.1875rem 0;
 
       &::after {
         --initial-x: 0.25rem;
@@ -85,28 +86,43 @@
         transform: translate(var(--initial-x), var(--initial-y));
       }
 
-      .link__bow-tie {
-        position: relative;
+      .link {
+        border-radius: inherit;
 
-        &::after {
-          --diff: 1px;
-          background-color: var(--clr-cream);
-        }
+        &__bow-tie {
+          position: relative;
+          border-radius: inherit;
 
-        &::before {
-          background-color: var(--clr-black);
-        }
+          &::after {
+            --diff: 1px;
+            background-color: var(--clr-cream);
+            transition: opacity 250ms ease-out;
+          }
 
-        &::before,
-        &::after {
-          content: "";
-          position: absolute;
-          top: calc(12% + var(--diff, 0px));
-          right: calc(-20% + 2 * var(--diff, 0px));
-          height: calc(76% - 2 * var(--diff, 0px));
-          width: calc(100% - 2 * var(--diff, 0px));
-          z-index: -1;
-          clip-path: polygon(0% 0%, 100% 0%, 90% 50%, 100% 100%, 0% 100%, 0% 0%);
+          &::before {
+            background-color: var(--clr-black);
+          }
+
+          &::before,
+          &::after {
+            content: "";
+            position: absolute;
+            top: calc(8% + var(--diff, 0px));
+            right: calc(-16% + 2 * var(--diff, 0px));
+            height: calc(84% - 2 * var(--diff, 0px));
+            width: calc(16% - 2 * var(--diff, 0px));
+            z-index: -1;
+            clip-path: polygon(0% 0%, 100% 0%, 60% 50%, 100% 100%, 0% 100%);
+          }
+
+          @media (hover: hover) {
+            &:hover {
+              &::after {
+                opacity: 0.1;
+                transition: opacity 450ms ease-in;
+              }
+            }
+          }
         }
       }
     }

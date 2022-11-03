@@ -69,12 +69,16 @@ export class App {
     const fragment = document.createDocumentFragment();
 
     for (let i = n * (page - 1); i < Math.min(n * page, imgsTotal); i++) {
+      const figure = document.createElement('figure');
+      figure.classList.add('explore__grid__figure');
+
       const img = document.createElement('img');
       img.src = this.images[i];
-      img.alt = "";
+      img.alt = '';
       img.classList.add('explore__grid__img');
 
-      fragment.appendChild(img);
+      figure.appendChild(img);
+      fragment.appendChild(figure);
     }
     this.grid.appendChild(fragment);
     if (imgsTotal > n * page) {
